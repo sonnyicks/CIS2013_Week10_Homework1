@@ -5,35 +5,17 @@ typedef char* CharPtr;
 
 int main(){
 
-int w;
-int h;
-int bombs;
+int w, h, bombs;
 CharPtr x;
-CharPtr y;
 
-// void print_board(int, int, int);
-
+//user enters height, width, and # of bombs
 	cout << "Enter width: ";
 	cin >> w;
 	cout << "Enter height: ";
 	cin >> h;
 	cout << "Enter number of bombs: ";
 	cin >> bombs;
-	
-	x = new char[w];
-	y = new char[h];
-	for (int n=0; n<=h; n++){
-	for (int i=0; i<=w; i++){
-		x[i] = 'X';
-		cout << " " << x[i] << " ";
-	}
 	cout << endl;
-}
+	//init function here--
 	return 0;
 }
-
-// void print_board (int w, int h, int b){
-	// for (int i=0; i<=w; i++){
-		
-	// }
-// }
