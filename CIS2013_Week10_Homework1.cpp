@@ -49,13 +49,18 @@ void view();
 			}
 		cout << endl;
 		}
+		
 	while (alive){
 	cout << "Pick x and y coordinates: ";
 	cin >> x >> y;
-	if (b[x][y]=='X'){alive=false;}
+	if (b[x][y]=='@'){alive=false;}
+	else if (b[x][y]!='@'){
+		b[x][y] = 'x';
+	}
 	for (int i=0; i<w; i++){
 		for (int j=0; j<h; j++){
-			cout << b[i][j] << " ";
+			if (b[i][j]=='x'){cout << "x ";}
+			else{cout << ". ";}
 		}
 		cout << endl;
 	}
