@@ -35,14 +35,18 @@ void view();
 			b[i][j] = '.';
 		}
 	}
-	//bombs placed
+	
+//bombs placed
 		while (bombs>0){
 			int rand_one = (rand() % w);
 			int rand_two = (rand() % h);
+			if (b[rand_one][rand_two]!='@'){
 			b[rand_one][(rand_two)] = '@';
 			bombs--;
+			}
 		}
-	//print board
+		
+//print board
 		for (int i=0; i<w; i++){
 			for (int j=0; j<h; j++){
 		cout << " " << ".";
@@ -50,6 +54,7 @@ void view();
 		cout << endl;
 		}
 		
+//game play	
 	while (alive){
 	cout << "Pick x and y coordinates: ";
 	cin >> x >> y;
@@ -60,12 +65,14 @@ void view();
 	for (int i=0; i<w; i++){
 		for (int j=0; j<h; j++){
 			if (b[i][j]=='x'){cout << "x ";}
+			else if ((b[i][j]=='@')&&(alive==false))
+				cout << "@ ";
 			else{cout << ". ";}
 		}
 		cout << endl;
 	}
 	}
-	cout << "YOU DIED" << endl;
+	cout << "!!!!YOU DIED!!!!" << endl;
 	return 0;
 }
 
