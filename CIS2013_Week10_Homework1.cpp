@@ -1,5 +1,7 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
+
 
 typedef char* IPtr;
 IPtr b;
@@ -9,6 +11,7 @@ int main(){
 int w, h, bombs, x, y;
 char init (int, int);
 bool alive = true;
+void view();
 
 
 //user enters height, width, and # of bombs
@@ -29,11 +32,23 @@ bool alive = true;
 //initialize array values
 	for (int i=0; i<w; i++){
 		for (int j=0; j<h; j++){
-			b[i][j] = 'X';
-			cout << b[i][j] << " ";
+			b[i][j] = '.';
 		}
-		cout << endl;
 	}
+	//bombs placed
+		while (bombs>0){
+			int rand_one = (rand() % w);
+			int rand_two = (rand() % h);
+			b[rand_one][(rand_two)] = '@';
+			bombs--;
+		}
+	//print board
+		for (int i=0; i<w; i++){
+			for (int j=0; j<h; j++){
+		cout << " " << ".";
+			}
+		cout << endl;
+		}
 	while (alive){
 	cout << "Pick x and y coordinates: ";
 	cin >> x >> y;
@@ -48,3 +63,4 @@ bool alive = true;
 	cout << "YOU DIED" << endl;
 	return 0;
 }
+
