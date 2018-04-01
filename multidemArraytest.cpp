@@ -1,16 +1,21 @@
 #include <iostream>
 using namespace std;
 
-typedef int* IntArrayPtr;
+int h, w, b;
 
 int main(){
-	int d1, d2;
-	cout << "Enter the row and column: ";
-	cin >> d1 >> d2;
+	cout << "height: ";
+	cin >> h;
+	cout << "width: ";
+	cin >> w;
 	
-	IntArrayPtr *m = new IntArrayPtr[d1];
-	int i, j;
-	for (i=0; i<d1; i++)
-		m[i] = new int[d2];
-	return 0;
+	char board[w][h];
+	for (int i=0; i<w; i++){
+		for (int j=0; j<h; j++){
+			board[i][j] = 'X';
+			cout << board[i][j];
+		}
+		cout << endl;
+	}
+return 0;
 }
