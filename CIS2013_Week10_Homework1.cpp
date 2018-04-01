@@ -1,12 +1,10 @@
 #include <iostream>
 using namespace std;
 
-typedef char* CharPtr;
-
 int main(){
 
 int w, h, bombs;
-CharPtr x;
+void init (int, int);
 
 //user enters height, width, and # of bombs
 	cout << "Enter width: ";
@@ -16,6 +14,15 @@ CharPtr x;
 	cout << "Enter number of bombs: ";
 	cin >> bombs;
 	cout << endl;
-	//init function here--
+	init (w, h);
 	return 0;
+}
+//establish board using two dimensional array
+//---add bombs---
+void init (int width, int height){
+	typedef char* IPtr;
+	IPtr *x = new IPtr[width];
+	for (int i=0; i<width; i++){
+		x[i] = new char[height];
+	} 
 }
