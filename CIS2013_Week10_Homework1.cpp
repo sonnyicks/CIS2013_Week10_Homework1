@@ -22,7 +22,7 @@ void view();
 	cin >> h;
 	cout << "Enter number of bombs: ";
 	cin >> bombs;
-	success = bombs;
+	success = (h*w)-bombs;
 	cout << endl;
 	
 //establish size of Array
@@ -61,12 +61,13 @@ void view();
 		}
 		
 //game play	
-	while (alive){
-	cout << "Pick x and y coordinates: ";
+	while ((alive)&&(success!=0)){
+	cout << endl << "Pick x and y coordinates: ";
 	cin >> x >> y;
 	if (b[x][y]=='@'){alive=false;}
 	else if (b[x][y]!='@'){
 		b[x][y] = 'x';
+		success--;
 	}
 //board re-printed
 	cout << "   ";
@@ -82,8 +83,11 @@ void view();
 		}
 		cout << endl;
 	}
+
 	}
-	cout << "!!!!YOU DIED!!!!" << endl;
+	if (success==0){cout << "YOU WIN!";
+	alive=false;}
+	else{cout << "!!!!YOU DIED!!!!" << endl;}
 	return 0;
 }
 
