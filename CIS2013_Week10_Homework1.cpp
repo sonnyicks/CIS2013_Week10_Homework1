@@ -8,10 +8,11 @@ IPtr b;
 
 int main(){
 
-int w, h, bombs, x, y;
+int w, h, bombs, x, y, success;
 char init (int, int);
 bool alive = true;
 void view();
+
 
 
 //user enters height, width, and # of bombs
@@ -21,6 +22,7 @@ void view();
 	cin >> h;
 	cout << "Enter number of bombs: ";
 	cin >> bombs;
+	success = bombs;
 	cout << endl;
 	
 //establish size of Array
@@ -47,7 +49,11 @@ void view();
 		}
 		
 //print board
+		cout << "   ";
+		for (int i=0; i<h; i++){cout << i << " ";}
+		cout << endl;
 		for (int i=0; i<w; i++){
+			cout << i << " ";
 			for (int j=0; j<h; j++){
 		cout << " " << ".";
 			}
