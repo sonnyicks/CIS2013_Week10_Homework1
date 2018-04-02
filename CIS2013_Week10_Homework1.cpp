@@ -42,8 +42,8 @@ void view();
 		while (bombs>0){
 			int rand_one = (rand() % w);
 			int rand_two = (rand() % h);
-			if (b[rand_one][rand_two]!='@'){
-			b[rand_one][(rand_two)] = '@';
+			if (b[rand_one][rand_two]!='X'){
+			b[rand_one][(rand_two)] = 'X';
 			bombs--;
 			}
 		}
@@ -64,9 +64,10 @@ void view();
 	while ((alive)&&(success!=0)){
 	cout << endl << "Pick x and y coordinates: ";
 	cin >> x >> y;
-	if (b[x][y]=='@'){alive=false;}
-	else if (b[x][y]!='@'){
-		b[x][y] = 'x';
+	if (b[x][y]=='X'){alive=false;
+		b[x][y]='@';}
+	else if (b[x][y]!='X'){
+		b[x][y] = 'f';
 		success--;
 	}
 //board re-printed
@@ -76,9 +77,10 @@ void view();
 	for (int i=0; i<w; i++){
 		cout << i << "  ";
 		for (int j=0; j<h; j++){
-			if (b[i][j]=='x'){cout << "x ";}
+			if (b[i][j]=='f'){cout << "  ";}
 			else if ((b[i][j]=='@')&&(alive==false))
 				cout << "@ ";
+			else if((b[i][j]=='X')&&(alive==false)){cout << "X ";}
 			else{cout << ". ";}
 		}
 		cout << endl;
