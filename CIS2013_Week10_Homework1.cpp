@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
 
@@ -12,6 +13,7 @@ int w, h, bombs, x, y, success;
 char init (int, int);
 bool alive = true;
 void view();
+srand(time(0));
 
 
 
@@ -80,7 +82,7 @@ void view();
 			if (b[i][j]=='f'){cout << "  ";}
 			else if ((b[i][j]=='@')&&(alive==false))
 				cout << "@ ";
-			else if((b[i][j]=='X')&&(alive==false)){cout << "X ";}
+			else if ((b[i][j]=='X')&&((alive==false)||(success==0))){cout << "X ";}
 			else{cout << ". ";}
 		}
 		cout << endl;
@@ -89,7 +91,7 @@ void view();
 	}
 	if (success==0){cout << "YOU WIN!";
 	alive=false;}
-	else{cout << "!!!!YOU DIED!!!!" << endl;}
+	else{cout << "                             !!!!YOU DIED!!!!" << endl;}
 	return 0;
 }
 
