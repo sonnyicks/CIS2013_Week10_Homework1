@@ -68,7 +68,12 @@ void view();
 	else if (b[x][y]!='@'){
 		b[x][y] = 'x';
 	}
+//board re-printed
+	cout << "   ";
+	for (int i=0; i<h; i++){cout << i << " ";}
+		cout << endl;
 	for (int i=0; i<w; i++){
+		cout << i << "  ";
 		for (int j=0; j<h; j++){
 			if (b[i][j]=='x'){cout << "x ";}
 			else if ((b[i][j]=='@')&&(alive==false))
