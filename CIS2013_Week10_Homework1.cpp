@@ -18,12 +18,16 @@ srand(time(0));
 
 
 //user enters height, width, and # of bombs
+	bool too_many = true;
 	cout << "Enter height: ";
 	cin >> w;
 	cout << "Enter width: ";
 	cin >> h;
+	while(too_many){
 	cout << "Enter number of bombs: ";
 	cin >> bombs;
+	if (bombs>=w*h){cout << "Too many bombs - choose different amount: \n";}
+	else {too_many=false;}}
 	success = (h*w)-bombs;
 	cout << endl;
 	
@@ -54,8 +58,11 @@ srand(time(0));
 		cout << "   ";
 		for (int i=0; i<h; i++){cout << i << " ";}
 		cout << endl;
+		cout << "   ";
+		for (int i=0; i<h; i++){cout << "__";}
+		cout << endl;
 		for (int i=0; i<w; i++){
-			cout << i << " ";
+			cout << i << "|";
 			for (int j=0; j<h; j++){cout << " " << ".";}
 		cout << endl;
 		}
@@ -73,10 +80,13 @@ srand(time(0));
 	}
 //board re-printed
 	cout << "   ";
-	for (int i=0; i<h; i++){cout << i << " ";}
+		for (int i=0; i<h; i++){cout << i << " ";}
+		cout << endl;
+		cout << "   ";
+		for (int i=0; i<h; i++){cout << "__";}
 		cout << endl;
 	for (int i=0; i<w; i++){
-		cout << i << "  ";
+		cout << i << "| ";
 		for (int j=0; j<h; j++){
 			if (b[i][j]=='f'){cout << "  ";}
 			else if ((b[i][j]=='@')&&(alive==false))
