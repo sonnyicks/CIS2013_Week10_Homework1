@@ -18,9 +18,9 @@ srand(time(0));
 
 
 //user enters height, width, and # of bombs
-	cout << "Enter width: ";
-	cin >> w;
 	cout << "Enter height: ";
+	cin >> w;
+	cout << "Enter width: ";
 	cin >> h;
 	cout << "Enter number of bombs: ";
 	cin >> bombs;
@@ -56,17 +56,16 @@ srand(time(0));
 		cout << endl;
 		for (int i=0; i<w; i++){
 			cout << i << " ";
-			for (int j=0; j<h; j++){
-		cout << " " << ".";
-			}
+			for (int j=0; j<h; j++){cout << " " << ".";}
 		cout << endl;
 		}
 		
 //game play	
 	while ((alive)&&(success!=0)){
 	cout << endl << "Pick x and y coordinates: ";
-	cin >> x >> y;
-	if (b[x][y]=='X'){alive=false;
+	cin >> y >> x;
+	if ((y>=h)||(x>=w)){cout << "invalid response - choose another: " << endl;}
+	else if (b[x][y]=='X'){alive=false;
 		b[x][y]='@';}
 	else if (b[x][y]!='X'){
 		b[x][y] = 'f';
@@ -89,6 +88,7 @@ srand(time(0));
 	}
 
 	}
+	//game end
 	if (success==0){cout << "YOU WIN!";
 	alive=false;}
 	else{cout << "                             !!!!YOU DIED!!!!" << endl;}
